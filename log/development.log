@@ -1,0 +1,1135 @@
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='BlogApp'*/[0m
+  [1m[35m (602.2ms)[0m  [1m[35mCREATE DATABASE "blog_app_development" ENCODING = 'unicode' /*application='BlogApp'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='BlogApp'*/[0m
+  [1m[35m (592.4ms)[0m  [1m[35mCREATE DATABASE "blog_app_test" ENCODING = 'unicode' /*application='BlogApp'*/[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='BlogApp'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='BlogApp'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1508658759281986305) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-02-18 05:33:03.203705', '2025-02-18 05:33:03.203709') RETURNING "key" /*application='BlogApp'*/[0m
+Migrating to CreatePosts (20250218053250)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='BlogApp'*/[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250218053250') RETURNING "version" /*application='BlogApp'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='BlogApp'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1508658759281986305) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Started GET "/posts" for ::1 at 2025-02-18 11:17:31 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (279.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 288.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 537.8ms | GC: 0.0ms)
+Completed 200 OK in 2936ms (Views: 288.4ms | ActiveRecord: 289.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2025-02-18 11:17:41 +0530
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 120.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 122.4ms | GC: 0.0ms)
+Completed 200 OK in 856ms (Views: 123.3ms | ActiveRecord: 16.6ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2025-02-18 11:19:04 +0530
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "post" => {"title" => "The Edison of India: The Inspiring Story of GD Naidu", "content" => "Gopalaswamy Doraiswamy Naidu, popularly known as GD Naidu, was a name synonymous with innovation, entrepreneurship, and relentless pursuit of knowledge in India.  He wasn't just an inventor; he was a visionary, a self-made man who defied conventions and left an indelible mark on the industrial landscape of the nation.  Often called the \"Edison of India,\" his story is one of perseverance, ingenuity, and a deep-rooted commitment to progress.\n\nBorn in a humble agricultural family in Coimbatore, Tamil Nadu, in 1886, GD Naidu's formal education was limited. However, his thirst for knowledge and his innate curiosity were boundless.  He started his career as a mechanic, tinkering with machines and learning the intricacies of their workings. This hands-on experience became the foundation of his future inventions and entrepreneurial ventures.\n\nGD Naidu's genius lay in his ability to identify everyday problems and devise innovative solutions. He wasn't confined to a specific field; his inventions spanned across various domains, from engineering and agriculture to textiles and even photography.  He is credited with inventing the first electric motor in India, a feat that earned him widespread recognition.  This wasn't just a theoretical exercise; he actually built and demonstrated a working prototype, showcasing his practical approach to innovation.\n\nBeyond the electric motor, GD Naidu's inventive spirit led him to create numerous other groundbreaking devices.  He developed an improved version of the kerosene-powered stove, a mechanical pump for agriculture, a tape recorder, and even a razor blade sharpener.  His inventions were often simple, practical, and affordable, designed to improve the lives of ordinary people.  He understood the needs of his community and used his skills to address them directly.\n\nGD Naidu wasn't just an inventor; he was a successful entrepreneur.  He established several industries, including a manufacturing unit for electric motors and pumps, and a textile mill.  He believed in self-reliance and aimed to create indigenous technologies that could compete with the best in the world.  His entrepreneurial ventures generated employment and contributed significantly to the economic development of his region.\n\nWhat truly set GD Naidu apart was his unwavering dedication to research and development.  He established the GD Naidu Industrial Museum in Coimbatore, a testament to his passion for innovation and a source of inspiration for budding engineers and entrepreneurs.  The museum houses many of his inventions and showcases the evolution of technology, serving as a valuable educational resource.\n\nGD Naidu's life story is a powerful reminder that formal education is not the only path to success.  His relentless curiosity, his willingness to experiment, and his unwavering belief in himself propelled him to achieve remarkable feats.  He was a true visionary, a pioneer who paved the way for future generations of Indian innovators.\n\nHis contributions to science, technology, and industry earned him numerous accolades and recognition.  However, his greatest reward was the satisfaction of knowing that his inventions and his entrepreneurial endeavors had made a positive impact on the lives of millions.\n\nGD Naidu's legacy continues to inspire.  He is remembered not just as an inventor, but as a symbol of ingenuity, perseverance, and the power of human potential.  His story serves as a beacon of hope, reminding us that with dedication and hard work, we can overcome any obstacle and achieve our dreams.  He was, and continues to be, a true icon of Indian innovation.\n\n\n\n\n\n\n\n\n\n"}, "commit" => "Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:17:in 'PostsController#create'
+  [1m[36mPost Create (7.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES ('The Edison of India: The Inspiring Story of GD Naidu', 'Gopalaswamy Doraiswamy Naidu, popularly known as GD Naidu, was a name synonymous with innovation, entrepreneurship, and relentless pursuit of knowledge in India.  He wasn''t just an inventor; he was a visionary, a self-made man who defied conventions and left an indelible mark on the industrial landscape of the nation.  Often called the "Edison of India," his story is one of perseverance, ingenuity, and a deep-rooted commitment to progress.
+
+Born in a humble agricultural family in Coimbatore, Tamil Nadu, in 1886, GD Naidu''s formal education was limited. However, his thirst for knowledge and his innate curiosity were boundless.  He started his career as a mechanic, tinkering with machines and learning the intricacies of their workings. This hands-on experience became the foundation of his future inventions and entrepreneurial ventures.
+
+GD Naidu''s genius lay in his ability to identify everyday problems and devise innovative solutions. He wasn''t confined to a specific field; his inventions spanned across various domains, from engineering and agriculture to textiles and even photography.  He is credited with inventing the first electric motor in India, a feat that earned him widespread recognition.  This wasn''t just a theoretical exercise; he actually built and demonstrated a working prototype, showcasing his practical approach to innovation.
+
+Beyond the electric motor, GD Naidu''s inventive spirit led him to create numerous other groundbreaking devices.  He developed an improved version of the kerosene-powered stove, a mechanical pump for agriculture, a tape recorder, and even a razor blade sharpener.  His inventions were often simple, practical, and affordable, designed to improve the lives of ordinary people.  He understood the needs of his community and used his skills to address them directly.
+
+GD Naidu wasn''t just an inventor; he was a successful entrepreneur.  He established several industries, including a manufacturing unit for electric motors and pumps, and a textile mill.  He believed in self-reliance and aimed to create indigenous technologies that could compete with the best in the world.  His entrepreneurial ventures generated employment and contributed significantly to the economic development of his region.
+
+What truly set GD Naidu apart was his unwavering dedication to research and development.  He established the GD Naidu Industrial Museum in Coimbatore, a testament to his passion for innovation and a source of inspiration for budding engineers and entrepreneurs.  The museum houses many of his inventions and showcases the evolution of technology, serving as a valuable educational resource.
+
+GD Naidu''s life story is a powerful reminder that formal education is not the only path to success.  His relentless curiosity, his willingness to experiment, and his unwavering belief in himself propelled him to achieve remarkable feats.  He was a true visionary, a pioneer who paved the way for future generations of Indian innovators.
+
+His contributions to science, technology, and industry earned him numerous accolades and recognition.  However, his greatest reward was the satisfaction of knowing that his inventions and his entrepreneurial endeavors had made a positive impact on the lives of millions.
+
+GD Naidu''s legacy continues to inspire.  He is remembered not just as an inventor, but as a symbol of ingenuity, perseverance, and the power of human potential.  His story serves as a beacon of hope, reminding us that with dedication and hard work, we can overcome any obstacle and achieve our dreams.  He was, and continues to be, a true icon of Indian innovation.
+
+
+
+
+
+
+
+
+
+', '2025-02-18 05:49:05.278240', '2025-02-18 05:49:05.278240') RETURNING "id" /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:17:in 'PostsController#create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:17:in 'PostsController#create'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 744ms (ActiveRecord: 8.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 11:19:05 +0530
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 722ms (Views: 3.7ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 11:19:10 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | GC: 0.0ms)
+Completed 200 OK in 648ms (Views: 7.9ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2025-02-18 11:19:14 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='edit',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 663ms (Views: 3.6ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2025-02-18 11:19:40 +0530
+Processing by PostsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "post" => {"title" => "The Edison of India: The Inspiring Story of GD Naidu", "content" => "Gopalaswamy Doraiswamy Naidu, popularly known as GD Naidu, was a name synonymous with innovation, entrepreneurship, and relentless pursuit of knowledge in India.  He wasn't just an inventor; he was a visionary, a self-made man who defied conventions and left an indelible mark on the industrial landscape of the nation.  Often called the \"Edison of India,\" his story is one of perseverance, ingenuity, and a deep-rooted commitment to progress.\n\nBorn in a humble agricultural family in Coimbatore, Tamil Nadu, in 1886, GD Naidu's formal education was limited. However, his thirst for knowledge and his innate curiosity were boundless.  He started his career as a mechanic, tinkering with machines and learning the intricacies of their workings. This hands-on experience became the foundation of his future inventions and entrepreneurial ventures.\n\nGD Naidu's genius lay in his ability to identify everyday problems and devise innovative solutions. He wasn't confined to a specific field; his inventions spanned across various domains, from engineering and agriculture to textiles and even photography.  He is credited with inventing the first electric motor in India, a feat that earned him widespread recognition.  This wasn't just a theoretical exercise; he actually built and demonstrated a working prototype, showcasing his practical approach to innovation.\n\nBeyond the electric motor, GD Naidu's inventive spirit led him to create numerous other groundbreaking devices.  He developed an improved version of the kerosene-powered stove, a mechanical pump for agriculture, a tape recorder, and even a razor blade sharpener.  His inventions were often simple, practical, and affordable, designed to improve the lives of ordinary people.  He understood the needs of his community and used his skills to address them directly.\n\nGD Naidu wasn't just an inventor; he was a successful entrepreneur.  He established several industries, including a manufacturing unit for electric motors and pumps, and a textile mill.  He believed in self-reliance and aimed to create indigenous technologies that could compete with the best in the world.  His entrepreneurial ventures generated employment and contributed significantly to the economic development of his region.\n\nWhat truly set GD Naidu apart was his unwavering dedication to research and development.  He established the GD Naidu Industrial Museum in Coimbatore, a testament to his passion for innovation and a source of inspiration for budding engineers and entrepreneurs.  The museum houses many of his inventions and showcases the evolution of technology, serving as a valuable educational resource.\n\nGD Naidu's life story is a powerful reminder that formal education is not the only path to success.  His relentless curiosity, his willingness to experiment, and his unwavering belief in himself propelled him to achieve remarkable feats.  He was a true visionary, a pioneer who paved the way for future generations of Indian innovators.\n\nHis contributions to science, technology, and industry earned him numerous accolades and recognition.\n  \n\nHowever, his greatest reward was the satisfaction of knowing that his inventions and his entrepreneurial endeavors had made a positive impact on the lives of millions.\n\nGD Naidu's legacy continues to inspire.  He is remembered not just as an inventor, but as a symbol of ingenuity, perseverance, and the power of human potential.  His story serves as a beacon of hope, reminding us that with dedication and hard work, we can overcome any obstacle and achieve our dreams.  He was, and continues to be, a true icon of Indian innovation.\n\n\n\n\n\n\n\n\n\n"}, "commit" => "Update Post", "id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:28:in 'PostsController#update'
+  [1m[36mPost Update (4.0ms)[0m  [1m[33mUPDATE "posts" SET "content" = 'Gopalaswamy Doraiswamy Naidu, popularly known as GD Naidu, was a name synonymous with innovation, entrepreneurship, and relentless pursuit of knowledge in India.  He wasn''t just an inventor; he was a visionary, a self-made man who defied conventions and left an indelible mark on the industrial landscape of the nation.  Often called the "Edison of India," his story is one of perseverance, ingenuity, and a deep-rooted commitment to progress.
+
+Born in a humble agricultural family in Coimbatore, Tamil Nadu, in 1886, GD Naidu''s formal education was limited. However, his thirst for knowledge and his innate curiosity were boundless.  He started his career as a mechanic, tinkering with machines and learning the intricacies of their workings. This hands-on experience became the foundation of his future inventions and entrepreneurial ventures.
+
+GD Naidu''s genius lay in his ability to identify everyday problems and devise innovative solutions. He wasn''t confined to a specific field; his inventions spanned across various domains, from engineering and agriculture to textiles and even photography.  He is credited with inventing the first electric motor in India, a feat that earned him widespread recognition.  This wasn''t just a theoretical exercise; he actually built and demonstrated a working prototype, showcasing his practical approach to innovation.
+
+Beyond the electric motor, GD Naidu''s inventive spirit led him to create numerous other groundbreaking devices.  He developed an improved version of the kerosene-powered stove, a mechanical pump for agriculture, a tape recorder, and even a razor blade sharpener.  His inventions were often simple, practical, and affordable, designed to improve the lives of ordinary people.  He understood the needs of his community and used his skills to address them directly.
+
+GD Naidu wasn''t just an inventor; he was a successful entrepreneur.  He established several industries, including a manufacturing unit for electric motors and pumps, and a textile mill.  He believed in self-reliance and aimed to create indigenous technologies that could compete with the best in the world.  His entrepreneurial ventures generated employment and contributed significantly to the economic development of his region.
+
+What truly set GD Naidu apart was his unwavering dedication to research and development.  He established the GD Naidu Industrial Museum in Coimbatore, a testament to his passion for innovation and a source of inspiration for budding engineers and entrepreneurs.  The museum houses many of his inventions and showcases the evolution of technology, serving as a valuable educational resource.
+
+GD Naidu''s life story is a powerful reminder that formal education is not the only path to success.  His relentless curiosity, his willingness to experiment, and his unwavering belief in himself propelled him to achieve remarkable feats.  He was a true visionary, a pioneer who paved the way for future generations of Indian innovators.
+
+His contributions to science, technology, and industry earned him numerous accolades and recognition.
+  
+
+However, his greatest reward was the satisfaction of knowing that his inventions and his entrepreneurial endeavors had made a positive impact on the lives of millions.
+
+GD Naidu''s legacy continues to inspire.  He is remembered not just as an inventor, but as a symbol of ingenuity, perseverance, and the power of human potential.  His story serves as a beacon of hope, reminding us that with dedication and hard work, we can overcome any obstacle and achieve our dreams.  He was, and continues to be, a true icon of Indian innovation.
+
+
+
+
+
+
+
+
+
+', "updated_at" = '2025-02-18 05:49:41.511487' WHERE "posts"."id" = 1 /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:28:in 'PostsController#update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:28:in 'PostsController#update'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 692ms (ActiveRecord: 5.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 11:19:41 +0530
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.0ms)
+Completed 200 OK in 699ms (Views: 3.9ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 11:20:22 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.0ms)
+Completed 200 OK in 684ms (Views: 7.4ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2025-02-18 11:20:40 +0530
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | GC: 0.0ms)
+Completed 200 OK in 659ms (Views: 5.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2025-02-18 11:22:33 +0530
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "post" => {"title" => "India's States and Their Special Names: A Journey Through Nicknames and Origins", "content" => "India, a land of vibrant cultures, diverse landscapes, and rich history, is divided into 28 states and 8 union territories.  Many of these states boast unique nicknames, often reflecting their history, geography, or cultural significance. Let's embark on a journey through some of these fascinating monikers and uncover the stories behind them.\n\nThe \"Abode of Clouds\": Meghalaya\n\nMeghalaya, nestled in the northeastern corner of India, truly lives up to its name.  \"Meghalaya\" is derived from the Sanskrit words \"Megha\" (cloud) and \"Alaya\" (abode), literally meaning \"Abode of the Clouds.\" This aptly describes the state's perpetually misty mountains, lush green valleys, and abundant rainfall.\n\n\"God's Own Country\": Kerala\n\nKerala, a coastal paradise in South India, is often referred to as \"God's Own Country.\"  While the exact origin of this nickname is debated, it perfectly captures the state's breathtaking natural beauty, from its serene backwaters and pristine beaches to its verdant tea plantations and spice gardens.  It's a testament to the sheer abundance of nature's gifts bestowed upon this land.\n\n\"The Land of Five Rivers\": Punjab\n\nPunjab, located in northwestern India, derives its name from the Persian words \"Punj\" (five) and \"Aab\" (water), meaning \"The Land of Five Rivers.\" These five rivers – the Beas, Chenab, Jhelum, Ravi, and Sutlej – are the lifeblood of the state, nourishing its fertile plains and shaping its history.\n\n\"The Land of Kings\": Rajasthan\n\nRajasthan, a state steeped in history and Rajput valor, is aptly named \"The Land of Kings.\"  This moniker reflects the state's rich heritage of Rajput rulers, their magnificent forts and palaces, and their tales of chivalry and grandeur.\n\n\"The City of Joy\": Kolkata (West Bengal)\n\nKolkata, the cultural capital of India, is often called \"The City of Joy.\" This nickname, popularized by Dominique Lapierre's novel of the same name, captures the city's vibrant spirit, its rich artistic traditions, and its resilient people who find joy even amidst adversity.\n\n\"The Silicon Valley of India\": Bengaluru (Karnataka)\n\nBengaluru, formerly known as Bangalore, has earned the moniker \"The Silicon Valley of India\" due to its status as a major IT hub.  The city is home to numerous tech companies and startups, driving India's technological advancements.\n\n\"The Spice Garden of India\": Kerala\n\nBeyond its \"God's Own Country\" title, Kerala is also known as the \"Spice Garden of India.\"  The state's fertile land and tropical climate make it ideal for cultivating a wide variety of spices, from cardamom and cloves to cinnamon and turmeric.  These spices have been traded across the world for centuries, bringing Kerala fame and fortune.\n\n\"The Land of Dawn-lit Mountains\": Arunachal Pradesh\n\nArunachal Pradesh, located in the easternmost part of India, is known as \"The Land of Dawn-lit Mountains.\"  This poetic name reflects the state's stunning landscapes, where the sun's rays first touch the towering Himalayan peaks, painting them in hues of gold and crimson."}, "commit" => "Create Post"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:17:in 'PostsController#create'
+  [1m[36mPost Create (4.1ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES ('India''s States and Their Special Names: A Journey Through Nicknames and Origins', 'India, a land of vibrant cultures, diverse landscapes, and rich history, is divided into 28 states and 8 union territories.  Many of these states boast unique nicknames, often reflecting their history, geography, or cultural significance. Let''s embark on a journey through some of these fascinating monikers and uncover the stories behind them.
+
+The "Abode of Clouds": Meghalaya
+
+Meghalaya, nestled in the northeastern corner of India, truly lives up to its name.  "Meghalaya" is derived from the Sanskrit words "Megha" (cloud) and "Alaya" (abode), literally meaning "Abode of the Clouds." This aptly describes the state''s perpetually misty mountains, lush green valleys, and abundant rainfall.
+
+"God''s Own Country": Kerala
+
+Kerala, a coastal paradise in South India, is often referred to as "God''s Own Country."  While the exact origin of this nickname is debated, it perfectly captures the state''s breathtaking natural beauty, from its serene backwaters and pristine beaches to its verdant tea plantations and spice gardens.  It''s a testament to the sheer abundance of nature''s gifts bestowed upon this land.
+
+"The Land of Five Rivers": Punjab
+
+Punjab, located in northwestern India, derives its name from the Persian words "Punj" (five) and "Aab" (water), meaning "The Land of Five Rivers." These five rivers – the Beas, Chenab, Jhelum, Ravi, and Sutlej – are the lifeblood of the state, nourishing its fertile plains and shaping its history.
+
+"The Land of Kings": Rajasthan
+
+Rajasthan, a state steeped in history and Rajput valor, is aptly named "The Land of Kings."  This moniker reflects the state''s rich heritage of Rajput rulers, their magnificent forts and palaces, and their tales of chivalry and grandeur.
+
+"The City of Joy": Kolkata (West Bengal)
+
+Kolkata, the cultural capital of India, is often called "The City of Joy." This nickname, popularized by Dominique Lapierre''s novel of the same name, captures the city''s vibrant spirit, its rich artistic traditions, and its resilient people who find joy even amidst adversity.
+
+"The Silicon Valley of India": Bengaluru (Karnataka)
+
+Bengaluru, formerly known as Bangalore, has earned the moniker "The Silicon Valley of India" due to its status as a major IT hub.  The city is home to numerous tech companies and startups, driving India''s technological advancements.
+
+"The Spice Garden of India": Kerala
+
+Beyond its "God''s Own Country" title, Kerala is also known as the "Spice Garden of India."  The state''s fertile land and tropical climate make it ideal for cultivating a wide variety of spices, from cardamom and cloves to cinnamon and turmeric.  These spices have been traded across the world for centuries, bringing Kerala fame and fortune.
+
+"The Land of Dawn-lit Mountains": Arunachal Pradesh
+
+Arunachal Pradesh, located in the easternmost part of India, is known as "The Land of Dawn-lit Mountains."  This poetic name reflects the state''s stunning landscapes, where the sun''s rays first touch the towering Himalayan peaks, painting them in hues of gold and crimson.', '2025-02-18 05:52:34.050296', '2025-02-18 05:52:34.050296') RETURNING "id" /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:17:in 'PostsController#create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:17:in 'PostsController#create'
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 687ms (ActiveRecord: 7.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2025-02-18 11:22:34 +0530
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 683ms (Views: 3.6ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2025-02-18 11:23:20 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='edit',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 631ms (Views: 3.4ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 11:23:22 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 650ms (Views: 8.8ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1508658759281986305) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='BlogApp'*/[0m
+Migrating to CreateComments (20250218055603)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='BlogApp'*/[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "content" text, "post_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_2fd19c0db7"
+FOREIGN KEY ("post_id")
+  REFERENCES "posts" ("id")
+) /*application='BlogApp'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_comments_on_post_id" ON "comments" ("post_id") /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250218055603') RETURNING "version" /*application='BlogApp'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*application='BlogApp'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1508658759281986305) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Writing application-8b441ae0.css
+Writing application-befdb77a.js
+Writing controllers/application-3affb389.js
+Writing controllers/hello_controller-708796bd.js
+Writing controllers/index-ee64e1f1.js
+Writing stimulus-autoloader-9d447422.js
+Writing stimulus-importmap-autoloader-64cc03e1.js
+Writing stimulus-loading-1fc53fe7.js
+Writing stimulus-d59b3b7f.js
+Writing stimulus.min-4b1e420e.js
+Writing stimulus.min-2395e199.js.map
+Writing turbo-86e38c3c.js
+Writing turbo.min-fae85750.js
+Writing turbo.min-5dd5a71a.js.map
+Writing actiontext.esm-f1c04d34.js
+Writing actiontext-a4ee937e.js
+Writing trix-0d050b00.js
+Writing trix-c4e7be2d.css
+Writing actioncable.esm-e0ec9819.js
+Writing actioncable-ac25813f.js
+Writing action_cable-5212cfee.js
+Writing activestorage.esm-f2909226.js
+Writing activestorage-32201f68.js
+Writing rails-ujs.esm-e925103b.js
+Writing rails-ujs-20eaf715.js
+Started GET "/posts" for ::1 at 2025-02-18 11:35:53 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (150.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 186.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 218.3ms | GC: 0.0ms)
+Completed 200 OK in 1740ms (Views: 102.7ms | ActiveRecord: 182.6ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 11:36:03 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:8
+  Rendered posts/show.html.erb within layouts/application (Duration: 267.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 268.7ms | GC: 0.0ms)
+Completed 200 OK in 1189ms (Views: 264.2ms | ActiveRecord: 6.5ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/posts/1/comments" for ::1 at 2025-02-18 11:37:41 +0530
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "comment" => {"content" => "\"A fantastic tribute to a true Indian hero!\""}, "commit" => "Submit", "post_id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='create',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:22:in 'CommentsController#set_post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:6:in 'CommentsController#create'
+  [1m[36mComment Create (4.7ms)[0m  [1m[32mINSERT INTO "comments" ("content", "post_id", "created_at", "updated_at") VALUES ('"A fantastic tribute to a true Indian hero!"', 1, '2025-02-18 06:07:42.115298', '2025-02-18 06:07:42.115298') RETURNING "id" /*action='create',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:6:in 'CommentsController#create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT /*action='create',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:6:in 'CommentsController#create'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 720ms (ActiveRecord: 6.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 11:37:42 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:8
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | GC: 0.0ms)
+Completed 200 OK in 691ms (Views: 6.0ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 11:37:48 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.0ms)
+Completed 200 OK in 746ms (Views: 7.4ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 11:37:52 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:8
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 721ms (Views: 6.8ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/1" for ::1 at 2025-02-18 11:37:57 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/1/comments/1"):
+  
+Started GET "/favicon.ico" for ::1 at 2025-02-18 11:37:58 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/posts/1" for ::1 at 2025-02-18 11:57:48 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (3.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 86.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 110.0ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 2025ms (ActiveRecord: 251.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'javascript_pack_tag' for an instance of #<Class:0x000002854427d3e8>)
+Caused by: NoMethodError (undefined method 'javascript_pack_tag' for an instance of #<Class:0x000002854427d3e8>)
+
+Information for: ActionView::Template::Error (undefined method 'javascript_pack_tag' for an instance of #<Class:0x000002854427d3e8>):
+    19: 
+    20:   <%# Includes all stylesheet files in app/assets/stylesheets %>
+    21:   <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    22:   <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+    23:   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    24: 
+    25: </head>
+  
+app/views/layouts/application.html.erb:22
+
+Information for cause: NoMethodError (undefined method 'javascript_pack_tag' for an instance of #<Class:0x000002854427d3e8>):
+  
+app/views/layouts/application.html.erb:22
+Started GET "/posts/1" for ::1 at 2025-02-18 12:01:59 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (3.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 81.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 101.1ms | GC: 0.0ms)
+Completed 200 OK in 2127ms (Views: 167.2ms | ActiveRecord: 244.8ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2025-02-18 12:02:06 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='edit',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.0ms)
+Completed 200 OK in 695ms (Views: 6.3ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 12:02:11 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.0ms)
+Completed 200 OK in 687ms (Views: 7.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:02:15 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 715ms (Views: 7.9ms | ActiveRecord: 1.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/1" for ::1 at 2025-02-18 12:02:20 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/1/comments/1"):
+  
+Started GET "/posts/1" for ::1 at 2025-02-18 12:03:52 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 22.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.7ms | GC: 0.0ms)
+Completed 200 OK in 924ms (Views: 27.5ms | ActiveRecord: 10.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:03:59 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 784ms (Views: 7.1ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 12:04:27 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | GC: 0.0ms)
+Completed 200 OK in 788ms (Views: 21.4ms | ActiveRecord: 5.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:04:31 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 16.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | GC: 0.0ms)
+Completed 200 OK in 721ms (Views: 14.1ms | ActiveRecord: 4.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 12:13:35 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (179.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 232.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 289.2ms | GC: 0.0ms)
+Completed 200 OK in 1926ms (Views: 74.6ms | ActiveRecord: 230.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:13:41 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 67.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 68.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 799ms (ActiveRecord: 9.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method 'post' for an instance of #<Class:0x000001dbafac7088>)
+Caused by: NameError (undefined local variable or method 'post' for an instance of #<Class:0x000001dbafac7088>)
+
+Information for: ActionView::Template::Error (undefined local variable or method 'post' for an instance of #<Class:0x000001dbafac7088>):
+    10:   <p>
+    11:     <%= comment.content %> |
+    12: 
+    13:     <%= link_to 'Delete Comment', post_comment_path(post, comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
+    14: 
+    15:   </p>
+    16: <% end %>
+  
+app/views/posts/show.html.erb:13
+app/views/posts/show.html.erb:9
+
+Information for cause: NameError (undefined local variable or method 'post' for an instance of #<Class:0x000001dbafac7088>):
+  
+app/views/posts/show.html.erb:13
+app/views/posts/show.html.erb:9
+Started GET "/posts/1" for ::1 at 2025-02-18 12:15:22 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:43:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 20.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 912ms (ActiveRecord: 9.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method 'post' for an instance of #<Class:0x000001dbb65cd990>)
+Caused by: NameError (undefined local variable or method 'post' for an instance of #<Class:0x000001dbb65cd990>)
+
+Information for: ActionView::Template::Error (undefined local variable or method 'post' for an instance of #<Class:0x000001dbb65cd990>):
+    15: <h3>Add a Comment</h3>
+    16: <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
+    17:   <p><%= form.text_area :content %></p>
+    18:   <%= link_to 'Delete Comment', post_comment_path(post, comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
+    19:   <%= form.submit 'Submit' %>
+    20: <% end %>
+    21: 
+  
+app/views/posts/show.html.erb:18
+app/views/posts/show.html.erb:16
+
+Information for cause: NameError (undefined local variable or method 'post' for an instance of #<Class:0x000001dbb65cd990>):
+  
+app/views/posts/show.html.erb:18
+app/views/posts/show.html.erb:16
+Started GET "/posts/1" for ::1 at 2025-02-18 12:18:20 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 32.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 854ms (ActiveRecord: 12.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method 'comment' for an instance of #<Class:0x000001dbb6608cc0>)
+Caused by: NameError (undefined local variable or method 'comment' for an instance of #<Class:0x000001dbb6608cc0>)
+
+Information for: ActionView::Template::Error (undefined local variable or method 'comment' for an instance of #<Class:0x000001dbb6608cc0>):
+    15: <h3>Add a Comment</h3>
+    16: <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
+    17:   <p><%= form.text_area :content %></p>
+    18:   <%= link_to 'Delete Comment', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
+    19:   <%= form.submit 'Submit' %>
+    20: <% end %>
+    21: 
+  
+app/views/posts/show.html.erb:18
+app/views/posts/show.html.erb:16
+
+Information for cause: NameError (undefined local variable or method 'comment' for an instance of #<Class:0x000001dbb6608cc0>):
+  
+app/views/posts/show.html.erb:18
+app/views/posts/show.html.erb:16
+Started GET "/posts/1" for ::1 at 2025-02-18 12:18:55 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 24.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 869ms (ActiveRecord: 10.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {action: "destroy", controller: "comments", id: nil, post_id: "1"}, missing required keys: [:id])
+Caused by: ActionController::UrlGenerationError (No route matches {action: "destroy", controller: "comments", id: nil, post_id: "1"}, missing required keys: [:id])
+
+Information for: ActionView::Template::Error (No route matches {action: "destroy", controller: "comments", id: nil, post_id: "1"}, missing required keys: [:id]):
+    15: <h3>Add a Comment</h3>
+    16: <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
+    17:   <p><%= form.text_area :content %></p>
+    18:   <%= link_to 'Delete Comment', post_comment_path(@post, @comment), method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
+    19:   <%= form.submit 'Submit' %>
+    20: <% end %>
+    21: 
+  
+app/views/posts/show.html.erb:18
+app/views/posts/show.html.erb:16
+
+Information for cause: ActionController::UrlGenerationError (No route matches {action: "destroy", controller: "comments", id: nil, post_id: "1"}, missing required keys: [:id]):
+  
+app/views/posts/show.html.erb:18
+app/views/posts/show.html.erb:16
+Started GET "/posts/1" for ::1 at 2025-02-18 12:19:59 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 23.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | GC: 0.0ms)
+Completed 200 OK in 907ms (Views: 29.4ms | ActiveRecord: 11.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2025-02-18 12:20:08 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.0ms)
+Completed 200 OK in 711ms (Views: 7.3ms | ActiveRecord: 3.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2025-02-18 12:20:15 +0530
+Processing by PostsController#edit as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='edit',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.0ms)
+Completed 200 OK in 691ms (Views: 8.0ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/posts/2" for ::1 at 2025-02-18 12:20:25 +0530
+Processing by PostsController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "post" => {"title" => "India's States and Their Special Names: A Journey Through Nicknames and Origins...", "content" => "India, a land of vibrant cultures, diverse landscapes, and rich history, is divided into 28 states and 8 union territories.  Many of these states boast unique nicknames, often reflecting their history, geography, or cultural significance. Let's embark on a journey through some of these fascinating monikers and uncover the stories behind them.\r\n\r\nThe \"Abode of Clouds\": Meghalaya\r\n\r\nMeghalaya, nestled in the northeastern corner of India, truly lives up to its name.  \"Meghalaya\" is derived from the Sanskrit words \"Megha\" (cloud) and \"Alaya\" (abode), literally meaning \"Abode of the Clouds.\" This aptly describes the state's perpetually misty mountains, lush green valleys, and abundant rainfall.\r\n\r\n\"God's Own Country\": Kerala\r\n\r\nKerala, a coastal paradise in South India, is often referred to as \"God's Own Country.\"  While the exact origin of this nickname is debated, it perfectly captures the state's breathtaking natural beauty, from its serene backwaters and pristine beaches to its verdant tea plantations and spice gardens.  It's a testament to the sheer abundance of nature's gifts bestowed upon this land.\r\n\r\n\"The Land of Five Rivers\": Punjab\r\n\r\nPunjab, located in northwestern India, derives its name from the Persian words \"Punj\" (five) and \"Aab\" (water), meaning \"The Land of Five Rivers.\" These five rivers – the Beas, Chenab, Jhelum, Ravi, and Sutlej – are the lifeblood of the state, nourishing its fertile plains and shaping its history.\r\n\r\n\"The Land of Kings\": Rajasthan\r\n\r\nRajasthan, a state steeped in history and Rajput valor, is aptly named \"The Land of Kings.\"  This moniker reflects the state's rich heritage of Rajput rulers, their magnificent forts and palaces, and their tales of chivalry and grandeur.\r\n\r\n\"The City of Joy\": Kolkata (West Bengal)\r\n\r\nKolkata, the cultural capital of India, is often called \"The City of Joy.\" This nickname, popularized by Dominique Lapierre's novel of the same name, captures the city's vibrant spirit, its rich artistic traditions, and its resilient people who find joy even amidst adversity.\r\n\r\n\"The Silicon Valley of India\": Bengaluru (Karnataka)\r\n\r\nBengaluru, formerly known as Bangalore, has earned the moniker \"The Silicon Valley of India\" due to its status as a major IT hub.  The city is home to numerous tech companies and startups, driving India's technological advancements.\r\n\r\n\"The Spice Garden of India\": Kerala\r\n\r\nBeyond its \"God's Own Country\" title, Kerala is also known as the \"Spice Garden of India.\"  The state's fertile land and tropical climate make it ideal for cultivating a wide variety of spices, from cardamom and cloves to cinnamon and turmeric.  These spices have been traded across the world for centuries, bringing Kerala fame and fortune.\r\n\r\n\"The Land of Dawn-lit Mountains\": Arunachal Pradesh\r\n\r\nArunachal Pradesh, located in the easternmost part of India, is known as \"The Land of Dawn-lit Mountains.\"  This poetic name reflects the state's stunning landscapes, where the sun's rays first touch the towering Himalayan peaks, painting them in hues of gold and crimson."}, "commit" => "Update Post", "id" => "2"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:29:in 'PostsController#update'
+  [1m[36mPost Update (7.1ms)[0m  [1m[33mUPDATE "posts" SET "title" = 'India''s States and Their Special Names: A Journey Through Nicknames and Origins...', "content" = 'India, a land of vibrant cultures, diverse landscapes, and rich history, is divided into 28 states and 8 union territories.  Many of these states boast unique nicknames, often reflecting their history, geography, or cultural significance. Let''s embark on a journey through some of these fascinating monikers and uncover the stories behind them.
+
+The "Abode of Clouds": Meghalaya
+
+Meghalaya, nestled in the northeastern corner of India, truly lives up to its name.  "Meghalaya" is derived from the Sanskrit words "Megha" (cloud) and "Alaya" (abode), literally meaning "Abode of the Clouds." This aptly describes the state''s perpetually misty mountains, lush green valleys, and abundant rainfall.
+
+"God''s Own Country": Kerala
+
+Kerala, a coastal paradise in South India, is often referred to as "God''s Own Country."  While the exact origin of this nickname is debated, it perfectly captures the state''s breathtaking natural beauty, from its serene backwaters and pristine beaches to its verdant tea plantations and spice gardens.  It''s a testament to the sheer abundance of nature''s gifts bestowed upon this land.
+
+"The Land of Five Rivers": Punjab
+
+Punjab, located in northwestern India, derives its name from the Persian words "Punj" (five) and "Aab" (water), meaning "The Land of Five Rivers." These five rivers – the Beas, Chenab, Jhelum, Ravi, and Sutlej – are the lifeblood of the state, nourishing its fertile plains and shaping its history.
+
+"The Land of Kings": Rajasthan
+
+Rajasthan, a state steeped in history and Rajput valor, is aptly named "The Land of Kings."  This moniker reflects the state''s rich heritage of Rajput rulers, their magnificent forts and palaces, and their tales of chivalry and grandeur.
+
+"The City of Joy": Kolkata (West Bengal)
+
+Kolkata, the cultural capital of India, is often called "The City of Joy." This nickname, popularized by Dominique Lapierre''s novel of the same name, captures the city''s vibrant spirit, its rich artistic traditions, and its resilient people who find joy even amidst adversity.
+
+"The Silicon Valley of India": Bengaluru (Karnataka)
+
+Bengaluru, formerly known as Bangalore, has earned the moniker "The Silicon Valley of India" due to its status as a major IT hub.  The city is home to numerous tech companies and startups, driving India''s technological advancements.
+
+"The Spice Garden of India": Kerala
+
+Beyond its "God''s Own Country" title, Kerala is also known as the "Spice Garden of India."  The state''s fertile land and tropical climate make it ideal for cultivating a wide variety of spices, from cardamom and cloves to cinnamon and turmeric.  These spices have been traded across the world for centuries, bringing Kerala fame and fortune.
+
+"The Land of Dawn-lit Mountains": Arunachal Pradesh
+
+Arunachal Pradesh, located in the easternmost part of India, is known as "The Land of Dawn-lit Mountains."  This poetic name reflects the state''s stunning landscapes, where the sun''s rays first touch the towering Himalayan peaks, painting them in hues of gold and crimson.', "updated_at" = '2025-02-18 06:50:26.259288' WHERE "posts"."id" = 2 /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:29:in 'PostsController#update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*action='update',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:29:in 'PostsController#update'
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 656ms (ActiveRecord: 9.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2025-02-18 12:20:26 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 721ms (Views: 6.0ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2025-02-18 12:20:33 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 697ms (Views: 6.7ms | ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2025-02-18 12:20:36 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 669ms (Views: 9.1ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 12:20:43 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.0ms)
+Completed 200 OK in 706ms (Views: 6.8ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:20:46 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 721ms (Views: 6.8ms | ActiveRecord: 1.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/Comment" for ::1 at 2025-02-18 12:21:20 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/1/comments/Comment"):
+  
+Started GET "/posts/1" for ::1 at 2025-02-18 12:22:35 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 20.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | GC: 0.0ms)
+Completed 200 OK in 884ms (Views: 27.0ms | ActiveRecord: 9.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/Comment" for ::1 at 2025-02-18 12:22:40 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/1/comments/Comment"):
+  
+Started GET "/posts/1" for ::1 at 2025-02-18 12:23:07 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 26.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.1ms | GC: 0.0ms)
+Completed 200 OK in 871ms (Views: 30.6ms | ActiveRecord: 10.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:23:16 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 700ms (Views: 7.0ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:23:20 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | GC: 0.0ms)
+Completed 200 OK in 689ms (Views: 7.4ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:23:23 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.0ms)
+Completed 200 OK in 684ms (Views: 6.6ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/Comment" for ::1 at 2025-02-18 12:23:32 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/1/comments/Comment"):
+  
+Started GET "/posts" for ::1 at 2025-02-18 12:23:45 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 667ms (Views: 7.9ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 12:26:19 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 19.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | GC: 0.0ms)
+Completed 200 OK in 1013ms (Views: 23.9ms | ActiveRecord: 5.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:26:23 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 18.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | GC: 0.0ms)
+Completed 200 OK in 750ms (Views: 16.0ms | ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:26:30 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 678ms (Views: 6.4ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/1" for ::1 at 2025-02-18 12:26:34 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/posts/1/comments/1"):
+  
+Started GET "/posts/1" for ::1 at 2025-02-18 12:27:44 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 21.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | GC: 0.0ms)
+Completed 200 OK in 851ms (Views: 25.1ms | ActiveRecord: 12.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:36:47 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (3.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (2.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 19.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | GC: 0.0ms)
+Completed 200 OK in 982ms (Views: 26.2ms | ActiveRecord: 25.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/1/edit" for ::1 at 2025-02-18 12:36:54 +0530
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id" => "1", "id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='edit',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:34:in 'CommentsController#set_post'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 AND "comments"."id" = 1 LIMIT 1 /*action='edit',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:38:in 'CommentsController#set_comment'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/edit.html.erb within layouts/application (Duration: 40.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.0ms | GC: 0.0ms)
+Completed 200 OK in 844ms (Views: 46.9ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/posts/1/comments/1" for ::1 at 2025-02-18 12:37:17 +0530
+Processing by CommentsController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "comment" => {"content" => "\"A fantastic tribute to a true Indian hero!\"\r\n\r\n\"GD Naidu's legacy lives on through the GD Naidu Industrial Museum and the countless individuals he inspired.  His story should be shared with every young aspiring inventor and entrepreneur in India.\""}, "commit" => "Update Comment", "post_id" => "1", "id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:34:in 'CommentsController#set_post'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 AND "comments"."id" = 1 LIMIT 1 /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:38:in 'CommentsController#set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:18:in 'CommentsController#update'
+  [1m[36mComment Update (4.1ms)[0m  [1m[33mUPDATE "comments" SET "content" = '"A fantastic tribute to a true Indian hero!"
+
+"GD Naidu''s legacy lives on through the GD Naidu Industrial Museum and the countless individuals he inspired.  His story should be shared with every young aspiring inventor and entrepreneur in India."', "updated_at" = '2025-02-18 07:07:18.761236' WHERE "comments"."id" = 1 /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:18:in 'CommentsController#update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:18:in 'CommentsController#update'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 716ms (ActiveRecord: 7.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:37:18 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 690ms (Views: 6.2ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1/comments/1/edit" for ::1 at 2025-02-18 12:37:30 +0530
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id" => "1", "id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='edit',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:34:in 'CommentsController#set_post'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 AND "comments"."id" = 1 LIMIT 1 /*action='edit',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:38:in 'CommentsController#set_comment'
+  Rendering layout layouts/application.html.erb
+  Rendering comments/edit.html.erb within layouts/application
+  Rendered comments/edit.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 723ms (Views: 4.3ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/posts/1/comments/1" for ::1 at 2025-02-18 12:37:45 +0530
+Processing by CommentsController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "comment" => {"content" => "\"A fantastic tribute to a true Indian hero!\".\r\n\r\n\"GD Naidu's legacy lives on through the GD Naidu Industrial Museum and the countless individuals he inspired.  His story should be shared with every young aspiring inventor and entrepreneur in India.\""}, "commit" => "Update Comment", "post_id" => "1", "id" => "1"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:34:in 'CommentsController#set_post'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 AND "comments"."id" = 1 LIMIT 1 /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:38:in 'CommentsController#set_comment'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:18:in 'CommentsController#update'
+  [1m[36mComment Update (4.4ms)[0m  [1m[33mUPDATE "comments" SET "content" = '"A fantastic tribute to a true Indian hero!".
+
+"GD Naidu''s legacy lives on through the GD Naidu Industrial Museum and the countless individuals he inspired.  His story should be shared with every young aspiring inventor and entrepreneur in India."', "updated_at" = '2025-02-18 07:07:46.135301' WHERE "comments"."id" = 1 /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:18:in 'CommentsController#update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*action='update',application='BlogApp',controller='comments'*/[0m
+  ↳ app/controllers/comments_controller.rb:18:in 'CommentsController#update'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 782ms (ActiveRecord: 6.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:37:46 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 692ms (Views: 7.9ms | ActiveRecord: 3.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for ::1 at 2025-02-18 12:37:59 +0530
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | GC: 0.0ms)
+Completed 200 OK in 739ms (Views: 11.0ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2025-02-18 12:57:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (161.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  Rendered posts/index.html.erb within layouts/application (Duration: 216.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 262.3ms | GC: 0.0ms)
+Completed 200 OK in 2012ms (Views: 65.6ms | ActiveRecord: 217.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2025-02-18 12:59:24 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:44:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (3.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:9
+  Rendered posts/show.html.erb within layouts/application (Duration: 60.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 62.2ms | GC: 0.0ms)
+Completed 200 OK in 1042ms (Views: 55.4ms | ActiveRecord: 8.6ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Writing application-1c6f2c60.js
