@@ -36,3 +36,4 @@
 config/cloudinary.yml
 
 "vendor" 
+"vendor/bundle/" 
