@@ -1133,3 +1133,703 @@ Completed 200 OK in 1042ms (Views: 55.4ms | ActiveRecord: 8.6ms (2 queries, 0 ca
 
 
 Writing application-1c6f2c60.js
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1508658759281986305) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='BlogApp'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1508658759281986305) /*application='BlogApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Writing cloudinary_cors-03f4d68e.html
+Writing cloudinary/canvas-to-blob.min-95b34a70.js
+Writing cloudinary/index-898d31ea.js
+Writing cloudinary/jquery.cloudinary-49b8921a.js
+Writing cloudinary/jquery.fileupload-image-e1e3e48a.js
+Writing cloudinary/jquery.fileupload-process-ff3e72e6.js
+Writing cloudinary/jquery.fileupload-validate-be54bf06.js
+Writing cloudinary/jquery.fileupload-6643e649.js
+Writing cloudinary/jquery.iframe-transport-cbf7a1a8.js
+Writing cloudinary/jquery.ui.widget-a6179d55.js
+Writing cloudinary/load-image.all.min-30ea7aef.js
+Writing cloudinary/processing-d0e0b6a3.js
+[dotenv] Set [36mCLOUDINARY_API_KEY[0m, [36mCLOUDINARY_API_SECRET[0m, and [36mCLOUDINARY_CLOUD_NAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-02-19 23:58:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+  
+SyntaxError (C:/Users/HP/blog_app/app/controllers/posts_controller.rb:18: syntax errors found
+  [2m16 | [m    def create
+  [2m17 | [m        @post = Post.new(post_params)
+[1;31m> [m[2m18 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+  [2m19 | [m        if @post.save
+  [2m20 | [m            redirect_to @post, notice: 'Post was successfully created.'
+[1;31m> [m[2m21 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m22 | [m        if params[:post][:image].present?
+  [2m23 | [m            @post.image.attach(params[:post][:image])
+[2m  ~~~~~~[m
+  [2m26 | [m        if @post.save
+  [2m27 | [m            redirect_to @post, notice: "Post was successfully created."
+[1;31m> [m[2m28 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m29 | [m        else
+  [2m30 | [m            render :new
+  [2m31 | [m        end
+  [2m32 | [m    end
+[1;31m> [m[2m33 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+[1;31m> [m[2m34 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m35 | [m      
+  [2m36 | [m      
+[1;31m> [m[2m37 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m38 | [m  
+  [2m39 | [m    def edit
+[2m  ~~~~~~[m
+  [2m78 | [m    
+  [2m79 | [mend
+[1;31m> [m[2m80 | [m  
+  [2m   | [m[1;31m^[m expected an `end` to close the `class` statement
+  [2m   | [m  [1;31m^[m unexpected end-of-input, assuming it is closing the parent top level context
+):
+  
+app/controllers/posts_controller.rb:18: syntax errors found
+Started GET "/" for ::1 at 2025-02-19 23:58:32 +0530
+  
+SyntaxError (C:/Users/HP/blog_app/app/controllers/posts_controller.rb:18: syntax errors found
+  [2m16 | [m    def create
+  [2m17 | [m        @post = Post.new(post_params)
+[1;31m> [m[2m18 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+  [2m19 | [m        if @post.save
+  [2m20 | [m            redirect_to @post, notice: 'Post was successfully created.'
+[1;31m> [m[2m21 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m22 | [m        if params[:post][:image].present?
+  [2m23 | [m            @post.image.attach(params[:post][:image])
+[2m  ~~~~~~[m
+  [2m26 | [m        if @post.save
+  [2m27 | [m            redirect_to @post, notice: "Post was successfully created."
+[1;31m> [m[2m28 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m29 | [m        else
+  [2m30 | [m            render :new
+  [2m31 | [m        end
+  [2m32 | [m    end
+[1;31m> [m[2m33 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+[1;31m> [m[2m34 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m35 | [m      
+  [2m36 | [m      
+[1;31m> [m[2m37 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m38 | [m  
+  [2m39 | [m    def edit
+[2m  ~~~~~~[m
+  [2m78 | [m    
+  [2m79 | [mend
+[1;31m> [m[2m80 | [m  
+  [2m   | [m[1;31m^[m expected an `end` to close the `class` statement
+  [2m   | [m  [1;31m^[m unexpected end-of-input, assuming it is closing the parent top level context
+):
+  
+app/controllers/posts_controller.rb:18: syntax errors found
+Started GET "/favicon.ico" for ::1 at 2025-02-19 23:58:35 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for ::1 at 2025-02-19 23:58:51 +0530
+  
+SyntaxError (C:/Users/HP/blog_app/app/controllers/posts_controller.rb:18: syntax errors found
+  [2m16 | [m    def create
+  [2m17 | [m        @post = Post.new(post_params)
+[1;31m> [m[2m18 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+  [2m19 | [m        if @post.save
+  [2m20 | [m            redirect_to @post, notice: 'Post was successfully created.'
+[1;31m> [m[2m21 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m22 | [m        if params[:post][:image].present?
+  [2m23 | [m            @post.image.attach(params[:post][:image])
+[2m  ~~~~~~[m
+  [2m26 | [m        if @post.save
+  [2m27 | [m            redirect_to @post, notice: "Post was successfully created."
+[1;31m> [m[2m28 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m29 | [m        else
+  [2m30 | [m            render :new
+  [2m31 | [m        end
+  [2m32 | [m    end
+[1;31m> [m[2m33 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+[1;31m> [m[2m34 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m35 | [m      
+  [2m36 | [m      
+[1;31m> [m[2m37 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m38 | [m  
+  [2m39 | [m    def edit
+[2m  ~~~~~~[m
+  [2m78 | [m    
+  [2m79 | [mend
+[1;31m> [m[2m80 | [m  
+  [2m   | [m[1;31m^[m expected an `end` to close the `class` statement
+  [2m   | [m  [1;31m^[m unexpected end-of-input, assuming it is closing the parent top level context
+):
+  
+app/controllers/posts_controller.rb:18: syntax errors found
+Started GET "/" for ::1 at 2025-02-19 23:58:54 +0530
+  
+SyntaxError (C:/Users/HP/blog_app/app/controllers/posts_controller.rb:18: syntax errors found
+  [2m16 | [m    def create
+  [2m17 | [m        @post = Post.new(post_params)
+[1;31m> [m[2m18 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+  [2m19 | [m        if @post.save
+  [2m20 | [m            redirect_to @post, notice: 'Post was successfully created.'
+[1;31m> [m[2m21 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m22 | [m        if params[:post][:image].present?
+  [2m23 | [m            @post.image.attach(params[:post][:image])
+[2m  ~~~~~~[m
+  [2m26 | [m        if @post.save
+  [2m27 | [m            redirect_to @post, notice: "Post was successfully created."
+[1;31m> [m[2m28 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m29 | [m        else
+  [2m30 | [m            render :new
+  [2m31 | [m        end
+  [2m32 | [m    end
+[1;31m> [m[2m33 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+[1;31m> [m[2m34 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m35 | [m      
+  [2m36 | [m      
+[1;31m> [m[2m37 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m38 | [m  
+  [2m39 | [m    def edit
+[2m  ~~~~~~[m
+  [2m78 | [m    
+  [2m79 | [mend
+[1;31m> [m[2m80 | [m  
+  [2m   | [m[1;31m^[m expected an `end` to close the `class` statement
+  [2m   | [m  [1;31m^[m unexpected end-of-input, assuming it is closing the parent top level context
+):
+  
+app/controllers/posts_controller.rb:18: syntax errors found
+[dotenv] Set [36mCLOUDINARY_API_KEY[0m, [36mCLOUDINARY_API_SECRET[0m, and [36mCLOUDINARY_CLOUD_NAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-02-20 00:02:19 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+  
+SyntaxError (C:/Users/HP/blog_app/app/controllers/posts_controller.rb:18: syntax errors found
+  [2m16 | [m    def create
+  [2m17 | [m        @post = Post.new(post_params)
+[1;31m> [m[2m18 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+  [2m19 | [m        if @post.save
+  [2m20 | [m            redirect_to @post, notice: 'Post was successfully created.'
+[1;31m> [m[2m21 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m22 | [m        if params[:post][:image].present?
+  [2m23 | [m            @post.image.attach(params[:post][:image])
+[2m  ~~~~~~[m
+  [2m26 | [m        if @post.save
+  [2m27 | [m            redirect_to @post, notice: "Post was successfully created."
+[1;31m> [m[2m28 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m29 | [m        else
+  [2m30 | [m            render :new
+  [2m31 | [m        end
+  [2m32 | [m    end
+[1;31m> [m[2m33 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+[1;31m> [m[2m34 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m35 | [m      
+  [2m36 | [m      
+[1;31m> [m[2m37 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m38 | [m  
+  [2m39 | [m    def edit
+[2m  ~~~~~~[m
+  [2m78 | [m    
+  [2m79 | [mend
+[1;31m> [m[2m80 | [m  
+  [2m   | [m[1;31m^[m expected an `end` to close the `class` statement
+  [2m   | [m  [1;31m^[m unexpected end-of-input, assuming it is closing the parent top level context
+):
+  
+app/controllers/posts_controller.rb:18: syntax errors found
+Started GET "/" for ::1 at 2025-02-20 00:02:25 +0530
+  
+SyntaxError (C:/Users/HP/blog_app/app/controllers/posts_controller.rb:18: syntax errors found
+  [2m16 | [m    def create
+  [2m17 | [m        @post = Post.new(post_params)
+[1;31m> [m[2m18 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+  [2m19 | [m        if @post.save
+  [2m20 | [m            redirect_to @post, notice: 'Post was successfully created.'
+[1;31m> [m[2m21 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m22 | [m        if params[:post][:image].present?
+  [2m23 | [m            @post.image.attach(params[:post][:image])
+[2m  ~~~~~~[m
+  [2m26 | [m        if @post.save
+  [2m27 | [m            redirect_to @post, notice: "Post was successfully created."
+[1;31m> [m[2m28 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m29 | [m        else
+  [2m30 | [m            render :new
+  [2m31 | [m        end
+  [2m32 | [m    end
+[1;31m> [m[2m33 | [m<<<<<<< HEAD
+  [2m   | [m[1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected <<, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '<', ignoring it
+[1;31m> [m[2m34 | [m=======
+  [2m   | [m[1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m   [1;31m^~~[m unexpected '===', ignoring it
+  [2m   | [m      [1;31m^[m unexpected '=', ignoring it
+  [2m35 | [m      
+  [2m36 | [m      
+[1;31m> [m[2m37 | [m>>>>>>> master
+  [2m   | [m[1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m  [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m    [1;31m^~[m unexpected >>, ignoring it
+  [2m   | [m      [1;31m^[m unexpected '>', ignoring it
+  [2m38 | [m  
+  [2m39 | [m    def edit
+[2m  ~~~~~~[m
+  [2m78 | [m    
+  [2m79 | [mend
+[1;31m> [m[2m80 | [m  
+  [2m   | [m[1;31m^[m expected an `end` to close the `class` statement
+  [2m   | [m  [1;31m^[m unexpected end-of-input, assuming it is closing the parent top level context
+):
+  
+app/controllers/posts_controller.rb:18: syntax errors found
+[dotenv] Set [36mCLOUDINARY_API_KEY[0m, [36mCLOUDINARY_API_SECRET[0m, and [36mCLOUDINARY_CLOUD_NAME[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for ::1 at 2025-02-20 00:06:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='BlogApp'*/[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (191.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (6.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (4.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (2.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 3 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 4 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (2.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (2.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 5 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 6 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  Rendered posts/index.html.erb within layouts/application (Duration: 1059.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1135.7ms | GC: 0.0ms)
+Completed 200 OK in 6777ms (Views: 857.0ms | ActiveRecord: 307.1ms (13 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--c4efae06c5d2a1378592cb73710f2d79dc121a55/image.jpg" for ::1 at 2025-02-20 00:06:53 +0530
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--d1f6bca804bffaf9e5ad295d1c881394f64f8ca5/image%201.jpg" for ::1 at 2025-02-20 00:06:53 +0530
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NiwicHVyIjoiYmxvYl9pZCJ9fQ==--d4b86025116cffb4afd349e7fe64e1e1ce733a49/image%205.jpg" for ::1 at 2025-02-20 00:06:53 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--c4efae06c5d2a1378592cb73710f2d79dc121a55", "filename" => "image"}
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NiwicHVyIjoiYmxvYl9pZCJ9fQ==--d4b86025116cffb4afd349e7fe64e1e1ce733a49", "filename" => "image 5"}
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--d1f6bca804bffaf9e5ad295d1c881394f64f8ca5", "filename" => "image 1"}
+  [1m[36mActiveStorage::Blob Load (5.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (1.6ms) [0m[34mGenerated URL for file at key: bs37l05mvguq24f7377q6y6dw7fh (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJiczM3bDA1bXZndXEyNGY3Mzc3cTZ5NmR3N2ZoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnaW1hZ2UuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDE6NTkuODgzWiIsInB1ciI6ImJsb2Jfa2V5In19--71ec636682e510b759042bf07137d581929f26ae/image.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJiczM3bDA1bXZndXEyNGY3Mzc3cTZ5NmR3N2ZoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnaW1hZ2UuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDE6NTkuODgzWiIsInB1ciI6ImJsb2Jfa2V5In19--71ec636682e510b759042bf07137d581929f26ae/image.jpg
+Completed 302 Found in 5487ms (ActiveRecord: 5.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJiczM3bDA1bXZndXEyNGY3Mzc3cTZ5NmR3N2ZoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnaW1hZ2UuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDE6NTkuODgzWiIsInB1ciI6ImJsb2Jfa2V5In19--71ec636682e510b759042bf07137d581929f26ae/image.jpg" for ::1 at 2025-02-20 00:06:59 +0530
+  [1m[36mActiveStorage::Blob Load (219.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: 1dxan0jnfha24qmozj2au8jcq2l4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIxZHhhbjBqbmZoYTI0cW1vemoyYXU4amNxMmw0IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDEuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMDk2WiIsInB1ciI6ImJsb2Jfa2V5In19--6371edb9d2fc1451d43b64b846e0fc7ac055534e/image%201.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIxZHhhbjBqbmZoYTI0cW1vemoyYXU4amNxMmw0IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDEuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMDk2WiIsInB1ciI6ImJsb2Jfa2V5In19--6371edb9d2fc1451d43b64b846e0fc7ac055534e/image%201.jpg
+Completed 302 Found in 5692ms (ActiveRecord: 240.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIxZHhhbjBqbmZoYTI0cW1vemoyYXU4amNxMmw0IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDEuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMDk2WiIsInB1ciI6ImJsb2Jfa2V5In19--6371edb9d2fc1451d43b64b846e0fc7ac055534e/image%201.jpg" for ::1 at 2025-02-20 00:07:00 +0530
+  [1m[36mActiveStorage::Blob Load (258.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 6 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: wb1qvfw3xw9pidaxa0li2y28htnm (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ3YjFxdmZ3M3h3OXBpZGF4YTBsaTJ5MjhodG5tIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDUuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMTMzWiIsInB1ciI6ImJsb2Jfa2V5In19--0cb781848dbb8c3bad3c781eda6c29841d2dc980/image%205.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ3YjFxdmZ3M3h3OXBpZGF4YTBsaTJ5MjhodG5tIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDUuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMTMzWiIsInB1ciI6ImJsb2Jfa2V5In19--0cb781848dbb8c3bad3c781eda6c29841d2dc980/image%205.jpg
+Completed 302 Found in 5731ms (ActiveRecord: 294.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ3YjFxdmZ3M3h3OXBpZGF4YTBsaTJ5MjhodG5tIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDUuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMTMzWiIsInB1ciI6ImJsb2Jfa2V5In19--0cb781848dbb8c3bad3c781eda6c29841d2dc980/image%205.jpg" for ::1 at 2025-02-20 00:07:00 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 1"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 5"}
+Completed 200 OK in 5430ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 5375ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 5361ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MywicHVyIjoiYmxvYl9pZCJ9fQ==--7a929ee2939799de00d40381b9877f4c60c4064e/image%202.jpg" for ::1 at 2025-02-20 00:07:06 +0530
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NCwicHVyIjoiYmxvYl9pZCJ9fQ==--9f662bc17810e970fdcfeda429d8795eab2a5489/image%204.jpg" for ::1 at 2025-02-20 00:07:06 +0530
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NSwicHVyIjoiYmxvYl9pZCJ9fQ==--16aeb8641ccb94c10f99b718186cfa37c71a1f65/image%203.jpg" for ::1 at 2025-02-20 00:07:06 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MywicHVyIjoiYmxvYl9pZCJ9fQ==--7a929ee2939799de00d40381b9877f4c60c4064e", "filename" => "image 2"}
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NCwicHVyIjoiYmxvYl9pZCJ9fQ==--9f662bc17810e970fdcfeda429d8795eab2a5489", "filename" => "image 4"}
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NSwicHVyIjoiYmxvYl9pZCJ9fQ==--16aeb8641ccb94c10f99b718186cfa37c71a1f65", "filename" => "image 3"}
+  [1m[36mActiveStorage::Blob Load (10.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 3 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: 7m7culuknqoq6lhsx5bnkop2k07m (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI3bTdjdWx1a25xb3E2bGhzeDVibmtvcDJrMDdtIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuNTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--f7036d2656483043acaae8ad612e9f72f4b2c1a1/image%202.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI3bTdjdWx1a25xb3E2bGhzeDVibmtvcDJrMDdtIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuNTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--f7036d2656483043acaae8ad612e9f72f4b2c1a1/image%202.jpg
+Completed 302 Found in 6001ms (ActiveRecord: 10.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI3bTdjdWx1a25xb3E2bGhzeDVibmtvcDJrMDdtIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuNTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--f7036d2656483043acaae8ad612e9f72f4b2c1a1/image%202.jpg" for ::1 at 2025-02-20 00:07:12 +0530
+  [1m[36mActiveStorage::Blob Load (15.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 4 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (1.1ms) [0m[34mGenerated URL for file at key: hf3tf7apucxr3rf3cncyfy7fradx (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJoZjN0ZjdhcHVjeHIzcmYzY25jeWZ5N2ZyYWR4IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNC5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDQuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTI3WiIsInB1ciI6ImJsb2Jfa2V5In19--1abe228e69fcb17a581f5be00768a0caa47e60d8/image%204.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJoZjN0ZjdhcHVjeHIzcmYzY25jeWZ5N2ZyYWR4IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNC5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDQuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTI3WiIsInB1ciI6ImJsb2Jfa2V5In19--1abe228e69fcb17a581f5be00768a0caa47e60d8/image%204.jpg
+Completed 302 Found in 5984ms (ActiveRecord: 15.6ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 5 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: vjkfgi2zy2qu3j3gz1w1fd0uxd6e (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2amtmZ2kyenkycXUzajNnejF3MWZkMHV4ZDZlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMy5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDMuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--ce7c60a09f224e031ca4b0f3d2cb5f60e59770dd/image%203.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2amtmZ2kyenkycXUzajNnejF3MWZkMHV4ZDZlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMy5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDMuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--ce7c60a09f224e031ca4b0f3d2cb5f60e59770dd/image%203.jpg
+Completed 302 Found in 5910ms (ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJoZjN0ZjdhcHVjeHIzcmYzY25jeWZ5N2ZyYWR4IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNC5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDQuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTI3WiIsInB1ciI6ImJsb2Jfa2V5In19--1abe228e69fcb17a581f5be00768a0caa47e60d8/image%204.jpg" for ::1 at 2025-02-20 00:07:12 +0530
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2amtmZ2kyenkycXUzajNnejF3MWZkMHV4ZDZlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMy5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDMuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--ce7c60a09f224e031ca4b0f3d2cb5f60e59770dd/image%203.jpg" for ::1 at 2025-02-20 00:07:13 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 2"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 4"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 3"}
+Completed 200 OK in 5994ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 5846ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 200 OK in 5817ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2025-02-20 00:07:31 +0530
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 670.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 672.1ms | GC: 0.0ms)
+Completed 200 OK in 2673ms (Views: 673.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2025-02-20 00:08:04 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "post" => {"title" => "TEST", "content" => "...All The Best..."}, "commit" => "Create Post"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:22:in 'PostsController#create'
+  [1m[36mPost Create (11.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES ('TEST', '...All The Best...', '2025-02-19 18:38:06.342328', '2025-02-19 18:38:06.342328') RETURNING "id" /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:22:in 'PostsController#create'
+  [1m[36mTRANSACTION (32.1ms)[0m  [1m[35mCOMMIT /*action='create',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:22:in 'PostsController#create'
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 2113ms (ActiveRecord: 43.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/7" for ::1 at 2025-02-20 00:08:06 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "7"}
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:68:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (6.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mComment Load (3.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 7 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:15
+  Rendered posts/show.html.erb within layouts/application (Duration: 417.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 419.5ms | GC: 0.0ms)
+Completed 200 OK in 2424ms (Views: 394.1ms | ActiveRecord: 28.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/7/upload_image" for ::1 at 2025-02-20 00:08:13 +0530
+Processing by PostsController#upload_image as HTML
+  Parameters: {"id" => "7"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1 /*action='upload_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:48:in 'PostsController#upload_image'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/upload_image.html.erb within layouts/application
+  Rendered posts/upload_image.html.erb within layouts/application (Duration: 70.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | GC: 0.0ms)
+Completed 200 OK in 2109ms (Views: 73.8ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/posts/7/save_image" for ::1 at 2025-02-20 00:08:52 +0530
+Processing by PostsController#save_image as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "post" => {"image" => #<ActionDispatch::Http::UploadedFile:0x0000017e22e719a8 @tempfile=#<Tempfile:C:/Users/HP/AppData/Local/Temp/RackMultipart20250220-9852-n9gm9w.jpg>, @content_type="image/jpeg", @original_filename="image 6.jpg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"image 6.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit" => "Upload", "id" => "7"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1 /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:52:in 'PostsController#save_image'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+  [1m[36mActiveStorage::Blob Load (9.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+  [1m[36mActiveStorage::Blob Create (1.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('o4xtbnefskcnf3ah9v18hs75g7vy', 'image 6.jpg', 'image/jpeg', '{"identified":true}', 'local', 8874, 'h/0GO1ESa1LjklZMDYltkQ==', '2025-02-19 18:38:55.332285') RETURNING "id" /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+  [1m[36mActiveStorage::Attachment Create (1.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('image', 'Post', 7, 7, '2025-02-19 18:38:55.344469') RETURNING "id" /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+  [1m[36mPost Update (1.3ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = '2025-02-19 18:38:55.357313' WHERE "posts"."id" = 7 /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+  [1m[36mTRANSACTION (30.7ms)[0m  [1m[35mCOMMIT /*action='save_image',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+[36m  Disk Storage (21.6ms) [0m[32mUploaded file to key: o4xtbnefskcnf3ah9v18hs75g7vy (checksum: h/0GO1ESa1LjklZMDYltkQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: aab557e1-ba51-4bb9-bb21-0cbe79e819ab) to Async(default) with arguments: #<GlobalID:0x0000017e20938d30 @uri=#<URI::GID gid://blog-app/ActiveStorage::Blob/7>>
+[ActiveJob] ↳ app/controllers/posts_controller.rb:54:in 'PostsController#save_image'
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 3316ms (ActiveRecord: 46.2ms (6 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/posts/7" for ::1 at 2025-02-20 00:08:56 +0530
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 7 LIMIT 1 /*application='BlogApp'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab] Performing ActiveStorage::AnalyzeJob (Job ID: aab557e1-ba51-4bb9-bb21-0cbe79e819ab) from Async(default) enqueued at 2025-02-19T18:38:56.034253000Z with arguments: #<GlobalID:0x0000017e20b9f8f8 @uri=#<URI::GID gid://blog-app/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN /*application='BlogApp',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mActiveStorage::Blob Update (10.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 7 /*application='BlogApp',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id" => "7"}
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mActiveStorage::Attachment Load (2.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 7 /*application='BlogApp',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 /*application='BlogApp',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mPost Update (1.5ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = '2025-02-19 18:38:56.771352' WHERE "posts"."id" = 7 /*application='BlogApp',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab]   [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='BlogApp',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [aab557e1-ba51-4bb9-bb21-0cbe79e819ab] Performed ActiveStorage::AnalyzeJob (Job ID: aab557e1-ba51-4bb9-bb21-0cbe79e819ab) from Async(default) in 376.62ms
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 7 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/controllers/posts_controller.rb:68:in 'PostsController#set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:4
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 7 LIMIT 1 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:5
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 7 /*action='show',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/show.html.erb:15
+  Rendered posts/show.html.erb within layouts/application (Duration: 21.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | GC: 0.0ms)
+Completed 200 OK in 2223ms (Views: 21.8ms | ActiveRecord: 3.8ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NywicHVyIjoiYmxvYl9pZCJ9fQ==--894a67efb0eb28d5903b6e618d7b7b05c13c91f6/image%206.jpg" for ::1 at 2025-02-20 00:08:58 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NywicHVyIjoiYmxvYl9pZCJ9fQ==--894a67efb0eb28d5903b6e618d7b7b05c13c91f6", "filename" => "image 6"}
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 7 LIMIT 1 /*action='show',application='BlogApp',controller='redirect'*/[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: o4xtbnefskcnf3ah9v18hs75g7vy (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJvNHh0Ym5lZnNrY25mM2FoOXYxOGhzNzVnN3Z5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDYuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDQ6MDAuOTI0WiIsInB1ciI6ImJsb2Jfa2V5In19--96731bcf9a94fa6f450ad1ad10f62e1c82c188a7/image%206.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJvNHh0Ym5lZnNrY25mM2FoOXYxOGhzNzVnN3Z5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDYuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDQ6MDAuOTI0WiIsInB1ciI6ImJsb2Jfa2V5In19--96731bcf9a94fa6f450ad1ad10f62e1c82c188a7/image%206.jpg
+Completed 302 Found in 1949ms (ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJvNHh0Ym5lZnNrY25mM2FoOXYxOGhzNzVnN3Z5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDYuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDQ6MDAuOTI0WiIsInB1ciI6ImJsb2Jfa2V5In19--96731bcf9a94fa6f450ad1ad10f62e1c82c188a7/image%206.jpg" for ::1 at 2025-02-20 00:09:00 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 6"}
+Started GET "/posts" for ::1 at 2025-02-20 00:09:02 +0530
+Processing by PostsController#index as HTML
+Completed 200 OK in 2361ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 3 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 4 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 5 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 6 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Post' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 7 LIMIT 1 /*action='index',application='BlogApp',controller='posts'*/[0m
+  ↳ app/views/posts/index.html.erb:13
+  Rendered posts/index.html.erb within layouts/application (Duration: 121.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 123.9ms | GC: 0.0ms)
+Completed 200 OK in 2102ms (Views: 110.2ms | ActiveRecord: 14.8ms (15 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJiczM3bDA1bXZndXEyNGY3Mzc3cTZ5NmR3N2ZoIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnaW1hZ2UuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDE6NTkuODgzWiIsInB1ciI6ImJsb2Jfa2V5In19--71ec636682e510b759042bf07137d581929f26ae/image.jpg" for ::1 at 2025-02-20 00:09:05 +0530
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI3bTdjdWx1a25xb3E2bGhzeDVibmtvcDJrMDdtIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDIuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuNTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--f7036d2656483043acaae8ad612e9f72f4b2c1a1/image%202.jpg" for ::1 at 2025-02-20 00:09:05 +0530
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJoZjN0ZjdhcHVjeHIzcmYzY25jeWZ5N2ZyYWR4IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNC5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDQuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTI3WiIsInB1ciI6ImJsb2Jfa2V5In19--1abe228e69fcb17a581f5be00768a0caa47e60d8/image%204.jpg" for ::1 at 2025-02-20 00:09:05 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 2"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 4"}
+Completed 304 Not Modified in 5468ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 304 Not Modified in 5467ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 304 Not Modified in 5458ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJvNHh0Ym5lZnNrY25mM2FoOXYxOGhzNzVnN3Z5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDYuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDQ6MDAuOTI0WiIsInB1ciI6ImJsb2Jfa2V5In19--96731bcf9a94fa6f450ad1ad10f62e1c82c188a7/image%206.jpg" for ::1 at 2025-02-20 00:09:11 +0530
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiIxZHhhbjBqbmZoYTI0cW1vemoyYXU4amNxMmw0IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDEuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMDk2WiIsInB1ciI6ImJsb2Jfa2V5In19--6371edb9d2fc1451d43b64b846e0fc7ac055534e/image%201.jpg" for ::1 at 2025-02-20 00:09:11 +0530
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ2amtmZ2kyenkycXUzajNnejF3MWZkMHV4ZDZlIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgMy5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDMuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MTIuOTY2WiIsInB1ciI6ImJsb2Jfa2V5In19--ce7c60a09f224e031ca4b0f3d2cb5f60e59770dd/image%203.jpg" for ::1 at 2025-02-20 00:09:11 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 6"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 1"}
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 3"}
+Completed 304 Not Modified in 5357ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 304 Not Modified in 5292ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Completed 304 Not Modified in 5268ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ3YjFxdmZ3M3h3OXBpZGF4YTBsaTJ5MjhodG5tIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiaW1hZ2UgNS5qcGdcIjsgZmlsZW5hbWUqPVVURi04JydpbWFnZSUyMDUuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDItMTlUMTg6NDI6MDAuMTMzWiIsInB1ciI6ImJsb2Jfa2V5In19--0cb781848dbb8c3bad3c781eda6c29841d2dc980/image%205.jpg" for ::1 at 2025-02-20 00:09:17 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "image 5"}
+Completed 304 Not Modified in 2105ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

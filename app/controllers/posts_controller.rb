@@ -15,26 +15,18 @@ class PostsController < ApplicationController
   
     def create
         @post = Post.new(post_params)
-<<<<<<< HEAD
-        if @post.save
-            redirect_to @post, notice: 'Post was successfully created.'
-=======
         if params[:post][:image].present?
             @post.image.attach(params[:post][:image])
         end
       
         if @post.save
             redirect_to @post, notice: "Post was successfully created."
->>>>>>> master
         else
             render :new
         end
     end
-<<<<<<< HEAD
-=======
       
       
->>>>>>> master
   
     def edit
     end
