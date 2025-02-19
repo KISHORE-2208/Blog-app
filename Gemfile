@@ -3,6 +3,13 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 
+gem 'cloudinary'
+
+gem 'fiddle'
+
+
+gem 'activestorage-cloudinary-service'
+
 
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -64,3 +71,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+gem 'dotenv-rails'
+
