@@ -34,3 +34,6 @@
 /config/master.key
 '' 
 config/cloudinary.yml
+
+/vendor/
+"vendor/bundle/" 
