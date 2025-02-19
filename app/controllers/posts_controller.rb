@@ -15,12 +15,18 @@ class PostsController < ApplicationController
   
     def create
         @post = Post.new(post_params)
+        if params[:post][:image].present?
+            @post.image.attach(params[:post][:image])
+        end
+      
         if @post.save
-            redirect_to @post, notice: 'Post was successfully created.'
+            redirect_to @post, notice: "Post was successfully created."
         else
             render :new
         end
     end
+      
+      
   
     def edit
     end
@@ -37,15 +43,30 @@ class PostsController < ApplicationController
         @post.destroy
         redirect_to posts_url, notice: 'Post was successfully deleted.'
     end
-  
+
+    def upload_image
+        @post = Post.find(params[:id])
+    end
+      
+    def save_image
+        @post = Post.find(params[:id])
+        if params[:post][:image].present?
+            @post.image.attach(params[:post][:image])
+            flash[:notice] = "Image uploaded successfully!"
+        else
+            flash[:alert] = "Please select an image."
+        end
+        redirect_to @post
+    end
+    
     private
-  
+    def post_params
+        params.require(:post).permit(:title, :content, :image)
+    end
+
     def set_post
         @post = Post.find(params[:id])
     end
-  
-    def post_params
-        params.require(:post).permit(:title, :content)
-    end
+    
 end
   
