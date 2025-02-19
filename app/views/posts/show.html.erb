@@ -1,7 +1,13 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
 
- 
+<% if @post.image.attached? %>
+  <p><%= image_tag(@post.image, class: "post-image", width: "300px", height: "200px") %></p>
+<% else %>
+  <p>No Image Available</p>
+  <%= link_to "Upload Image", upload_image_post_path(@post), class: "button" %> |
+<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 
@@ -21,3 +27,5 @@
 <% end %>
 
 <%= link_to 'Back to Posts', posts_path %>
+
+
