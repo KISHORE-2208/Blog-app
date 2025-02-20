@@ -2,9 +2,10 @@
 <p><%= @post.content %></p>
 
 <% if @post.image.attached? %>
-  <%= image_tag @post.image.service_url, alt: "Uploaded Image" %>
+  <%= image_tag(@post.image.variant(resize_to_limit: [500, 500])) if @post.image.variable? %>
+  <%= image_tag(@post.image) unless @post.image.variable? %>
 <% else %>
-  e<p>No image uploaded.</p>
+  <p>No image attached</p>
   <%= link_to "Upload Image", upload_image_post_path(@post), class: "button" %>
 <% end %>
 
