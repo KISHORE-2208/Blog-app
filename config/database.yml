@@ -31,27 +31,24 @@ test:
   password: MGKishore_2223
   host: localhost
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  url: <%= ENV["DATABASE_URL"] %>
+production: &primary_production
+  <<: *default
+  database: <%= ENV["DATABASE_URL"] %>
+  username: <%= ENV["BLOG_APP_PRODUCTION_USER"] %>
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+  host: <%= ENV["BLOG_APP_PRODUCTION_HOST"] %>
 
   cache:
     <<: *default
-    url: <%= ENV.fetch("DATABASE_CACHE_URL", ENV["DATABASE_URL"]) %>
+    database: <%= ENV.fetch("DATABASE_CACHE_URL", ENV["DATABASE_URL"]) %>
     migrations_paths: db/cache_migrate
 
   queue:
     <<: *default
-    url: <%= ENV.fetch("DATABASE_QUEUE_URL", ENV["DATABASE_URL"]) %>
+    database: <%= ENV.fetch("DATABASE_QUEUE_URL", ENV["DATABASE_URL"]) %>
     migrations_paths: db/queue_migrate
 
   cable:
-  <<: *primary_production
-  adapter: postgresql
-  database: <%= ENV.fetch("BLOG_APP_PRODUCTION_CABLE_DB", "blog_app_production_cable") %>
-  username: <%= ENV["BLOG_APP_PRODUCTION_USER"] %>
-  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
-  host: <%= ENV["BLOG_APP_PRODUCTION_HOST"] %>
-  migrations_paths: db/cable_migrate
+    <<: *primary_production
+    database: <%= ENV.fetch("BLOG_APP_PRODUCTION_CABLE_DB", "blog_app_production_cable") %>
+    migrations_paths: db/cable_migrate
