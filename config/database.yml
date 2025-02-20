@@ -16,29 +16,26 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: <%= ENV.fetch("POSTGRES_USER", "postgres") %>
-  password: <%= ENV.fetch("POSTGRES_PASSWORD", "MGKishore_2223") %>
-  host: <%= ENV.fetch("POSTGRES_HOST", "localhost") %>
-  port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
 
 development:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: blog_app_development
   username: postgres
   password: MGKishore_2223
   host: localhost
-  port: 5432
-
 
 test:
   <<: *default
   database: blog_app_test
+  username: postgres
+  password: MGKishore_2223
+  host: localhost
 
 production:
-  <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
+  encoding: unicode
   pool: 5
+  url: <%= ENV["DATABASE_URL"] %>
 
   cache:
     <<: *default
