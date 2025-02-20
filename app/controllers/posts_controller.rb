@@ -20,8 +20,7 @@ class PostsController < ApplicationController
           redirect_to @post, notice: "Post was successfully created."
         else
           render :new
-        end
-      end      
+        end      
     end
       
       

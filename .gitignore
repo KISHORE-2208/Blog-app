@@ -40,3 +40,4 @@ config/cloudinary.yml
 "log/*.log" 
 
 "log/*.log" 
+"config/cloudinary.yml" 
