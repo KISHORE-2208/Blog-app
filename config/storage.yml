@@ -1,8 +1,9 @@
 cloudinary:
   service: Cloudinary
-  cloud_name: <%= ENV['dndv7ayic'] %>
-  api_key: <%= ENV['138777773257955'] %>
-  api_secret: <%= ENV['sukdlRCbZ29hoUFSQ8Bql8kBG7s'] %>
+  cloud_name: <%= ENV['CLOUDINARY_CLOUD_NAME'] %>
+  api_key: <%= ENV['CLOUDINARY_API_KEY'] %>
+  api_secret: <%= ENV['CLOUDINARY_API_SECRET'] %>
+
 
 test:
   service: Disk
