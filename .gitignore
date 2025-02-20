@@ -37,3 +37,4 @@ config/cloudinary.yml
 
 /vendor/
 "vendor/bundle/" 
+"log/*.log" 
