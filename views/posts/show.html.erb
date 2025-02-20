@@ -2,11 +2,9 @@
 <p><%= @post.content %></p>
 
 <% if @post.image.attached? %>
-  <p>
-    <%= image_tag @post.image.variant(resize: "300x200").processed, class: "post-image", alt: "Post Image" %>
-  </p>
+  <%= image_tag url_for(@post.image), alt: "Uploaded Image" %>
 <% else %>
-  <p>No Image Available</p>
+  <p>No image uploaded.</p>
   <%= link_to "Upload Image", upload_image_post_path(@post), class: "button" %>
 <% end %>
 
