@@ -1,16 +1,4 @@
 # PostgreSQL Configuration for Rails
-#
-# Install the pg driver:
-#   gem install pg
-# On macOS with Homebrew:
-#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
-# On Windows:
-#   gem install pg
-#       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
-#
-# Configure Using Gemfile
-# gem "pg"
 
 default: &default
   adapter: postgresql
@@ -33,22 +21,22 @@ test:
 
 production: &primary_production
   <<: *default
-  database: <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
   username: <%= ENV["BLOG_APP_PRODUCTION_USER"] %>
   password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
   host: <%= ENV["BLOG_APP_PRODUCTION_HOST"] %>
 
-  cache:
-    <<: *default
-    database: <%= ENV.fetch("DATABASE_CACHE_URL", ENV["DATABASE_URL"]) %>
-    migrations_paths: db/cache_migrate
+cache:
+  <<: *default
+  url: <%= ENV.fetch("DATABASE_CACHE_URL", ENV["DATABASE_URL"]) %>
+  migrations_paths: db/cache_migrate
 
-  queue:
-    <<: *default
-    database: <%= ENV.fetch("DATABASE_QUEUE_URL", ENV["DATABASE_URL"]) %>
-    migrations_paths: db/queue_migrate
+queue:
+  <<: *default
+  url: <%= ENV.fetch("DATABASE_QUEUE_URL", ENV["DATABASE_URL"]) %>
+  migrations_paths: db/queue_migrate
 
-  cable:
-    <<: *primary_production
-    database: <%= ENV.fetch("BLOG_APP_PRODUCTION_CABLE_DB", "blog_app_production_cable") %>
-    migrations_paths: db/cable_migrate
+cable:
+  <<: *primary_production
+  database: <%= ENV.fetch("BLOG_APP_PRODUCTION_CABLE_DB", "blog_app_production_cable") %>
+  migrations_paths: db/cable_migrate
