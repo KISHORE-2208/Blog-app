@@ -1,16 +1,20 @@
 <h1>All Posts</h1>
+
 <%= link_to 'New Post', new_post_path %>
 
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%= link_to post.title, post_path(post) %> | <%# Consistent use of post_path %>
+      <%= link_to post.title, post_path(post) %> |
       <%= link_to "Edit", edit_post_path(post) %> |
       <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
 
-      <% if post.image.attached? %> 
-        <%= image_tag post.image, width: "100px", height: "100px" %> <%# Added alt text %>
+      <% if post.image.attached? %>
+        <%= image_tag post.image.variant(resize: "100x100").processed, alt: "Post Image" %>
+      <% else %>
+        <p>No Image Available</p>
       <% end %>
+
       <p><%= post.content.truncate(100) %></p>
     </li>
   <% end %>
