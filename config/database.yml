@@ -50,6 +50,10 @@ production:
     migrations_paths: db/queue_migrate
 
   cable:
-    <<: *default
-    url: <%= ENV.fetch("DATABASE_CABLE_URL", ENV["DATABASE_URL"]) %>
-    migrations_paths: db/cable_migrate
+  <<: *primary_production
+  adapter: postgresql
+  database: <%= ENV.fetch("BLOG_APP_PRODUCTION_CABLE_DB", "blog_app_production_cable") %>
+  username: <%= ENV["BLOG_APP_PRODUCTION_USER"] %>
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+  host: <%= ENV["BLOG_APP_PRODUCTION_HOST"] %>
+  migrations_paths: db/cable_migrate
