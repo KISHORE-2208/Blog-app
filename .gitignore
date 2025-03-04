@@ -41,3 +41,4 @@ config/cloudinary.yml
 
 "log/*.log" 
 "config/cloudinary.yml" 
+".env" 

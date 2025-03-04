@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'preview_post', to: 'posts#preview'
+
   resources :posts do
     member do
       get :upload_image
