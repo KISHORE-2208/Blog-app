@@ -1,9 +1,41 @@
 <h1>New Post</h1>
 
+<%= button_to 'Submit Content', preview_post_path, method: :post, params: { content: '' }, id: 'preview_button' %>
+
 <%= form_with model: @post, local: true do |form| %>
   <p>Title: <%= form.text_field :title %></p>
-  <p>Content: <%= form.text_area :content %></p>
+  <p>Content: <%= form.text_area :content, id: 'post_content' %></p>
   <%= form.submit 'Create Post' %>
 <% end %>
 
 <%= link_to 'Back', posts_path %>
+
+<% if @preview_content.present? %>
+  <h2>Preview:</h2>
+  <p><%= @preview_content %></p>
+<% end %>
+
+<script>
+  document.getElementById('preview_button').addEventListener('click', function(event) {
+    event.preventDefault();
+    let content = document.getElementById('post_content').value;
+
+    fetch('<%= preview_post_path %>', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': document.querySelector("meta[name='csrf-token']").content,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content: content })
+    })
+    .then(response => response.json())
+    .then(data => {
+      let previewDiv = document.querySelector('h2 + p'); // Locate preview section
+      if (!previewDiv) {
+        previewDiv = document.createElement('p');
+        document.querySelector('h2').after(previewDiv);
+      }
+      previewDiv.innerText = data.content;
+    });
+  });
+</script>

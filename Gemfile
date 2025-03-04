@@ -73,3 +73,4 @@ end
 
 gem 'dotenv-rails'
 
+"gem 'dotenv-rails'" 
