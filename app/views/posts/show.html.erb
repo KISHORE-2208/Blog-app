@@ -5,7 +5,6 @@
   <p><%= image_tag(@post.image, class: "post-image", width: "300px", height: "200px") %></p>
 <% else %>
   <p>No Image Available</p>
-  <%= link_to "Upload Image", upload_image_post_path(@post), class: "button" %> |
 <% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
@@ -22,10 +21,7 @@
 <h3>Add a Comment</h3>
 <%= form_with(model: [@post, Comment.new], local: true) do |form| %>
   <p><%= form.text_area :content %></p>
-  
   <%= form.submit 'Submit' %>
 <% end %>
 
 <%= link_to 'Back to Posts', posts_path %>
-
-

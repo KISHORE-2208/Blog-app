@@ -2,9 +2,15 @@
 
 <%= button_to 'Submit Content', preview_post_path, method: :post, params: { content: '' }, id: 'preview_button' %>
 
-<%= form_with model: @post, local: true do |form| %>
+<%= form_with model: @post, local: true, multipart: true do |form| %>
   <p>Title: <%= form.text_field :title %></p>
   <p>Content: <%= form.text_area :content, id: 'post_content' %></p>
+
+  <p>
+    <%= form.label :image, "Upload Image" %><br>
+    <%= form.file_field :image %>
+  </p>
+
   <%= form.submit 'Create Post' %>
 <% end %>
 
