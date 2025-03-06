@@ -8,8 +8,6 @@ gem 'fiddle'
 gem 'cloudinary'
 gem 'activestorage-cloudinary-service'
 
-
-
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use postgresql as the database for Active Record

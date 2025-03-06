@@ -5,6 +5,7 @@ cloudinary:
   api_secret: <%= ENV['CLOUDINARY_API_SECRET'] %>
   secure: true
 
+
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
