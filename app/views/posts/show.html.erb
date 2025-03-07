@@ -2,7 +2,7 @@
 <p><%= @post.content %></p>
 
 <% if @post.image.attached? %>
-  <p><%= image_tag url_for(@post.image), class: "post-image", width: "300px", height: "200px" %></p>
+  <p><%= image_tag url_for(@post.image), class: "post-image" %></p>
 <% else %>
   <p>No Image Available</p>
 <% end %>
