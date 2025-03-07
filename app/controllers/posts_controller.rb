@@ -26,7 +26,8 @@ class PostsController < ApplicationController
 
       # Ensure image is attached and retrieve Cloudinary URL
       if @post.image.attached?
-        image_url = Rails.application.routes.url_helpers.rails_blob_url(@post.image, only_path: false)
+        image_url = Rails.application.routes.url_helpers.rails_blob_url(@post.image, host: "http://localhost:3000")
+
         Rails.logger.info "Generated Image URL: #{image_url}" # Debugging
 
         chatgpt_response = evaluate_homework(image_url)
@@ -59,7 +60,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, :image, :evaluation_response)
   end
 
   def set_post

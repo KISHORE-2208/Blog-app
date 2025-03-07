@@ -4,6 +4,8 @@ source "https://rubygems.org"
 gem "rails", "~> 8.0.1"
 
 gem 'fiddle'
+gem 'ruby-openai'
+
 
 gem 'cloudinary'
 gem 'activestorage-cloudinary-service'
