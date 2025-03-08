@@ -18,27 +18,32 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    
+
     if @post.save
-      if params[:post][:image].present?
-        @post.image.attach(params[:post][:image])
-      end
+      attach_image_if_present
 
-      # Ensure image is attached and retrieve Cloudinary URL
       if @post.image.attached?
-        image_url = Rails.application.routes.url_helpers.rails_blob_url(@post.image, host: "http://localhost:3000")
+        Rails.logger.info "STARTING API"
 
-        Rails.logger.info "Generated Image URL: #{image_url}" # Debugging
+        image_url = get_image_url(@post)
+        Rails.logger.info "Generated Image URL: #{image_url}"
 
-        chatgpt_response = evaluate_homework(image_url)
-        @post.update(evaluation_response: chatgpt_response)
+        prompt = "Evaluate the student's handwritten homework for correctness and provide structured feedback."
+
+        chatgpt_response = evaluate_homework(image_url, prompt)
+
+        if chatgpt_response[:error].nil?
+          @post.update(evaluation_response: chatgpt_response.to_json)
+        else
+          Rails.logger.error "API error: #{chatgpt_response[:error]}"
+        end
       end
 
       redirect_to @post, notice: "Post was successfully created."
     else
       Rails.logger.error "Post creation failed: #{@post.errors.full_messages.join(', ')}"
       render :new
-    end      
+    end
   end
 
   def edit
@@ -67,58 +72,52 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def evaluate_homework(image_url)
-    prompt = "Please provide your evaluation for each question based on the Answer Key provided to you. The answer can be similar, not necessarily exact. Reference the Question ID in your response and follow the response format. If any answer is incorrect, reverify your response and give the output."
+  def attach_image_if_present
+    return unless params[:post][:image].present?
 
-    client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+    @post.image.attach(params[:post][:image])
+  end
+
+  def get_image_url(post)
+    if post.image.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(post.image, only_path: false)
+    else
+      nil
+    end
+  end
+
+  def evaluate_homework(image_url, prompt)
+    return { error: "Image URL is missing" } if image_url.nil?
+
+    client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
 
     parameters = {
-      model: "gpt-4-vision-preview",
-      messages: [{ role: "user", content: [
-        { "type": "text", "text": prompt },
-        { "type": "image_url", "image_url": { "url": image_url } }
-      ]}],
-      response_format: {
-        "type": "json_schema",
-        "json_schema": {
-          "name": "homework",
-          "schema": {
-            "type": "object",
-            "properties": {
-              "responses": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "question": {"type": "string"},
-                    "question_id": {"type": "string"},
-                    "student_answer": {"type": "string"},
-                    "correct": {"type": "boolean"},
-                    "explanation": {"type": "string"}
-                  },
-                  "required": ["question", "question_id","student_answer","correct","explanation"],
-                  "additionalProperties": false
-                }
-              }
-            },
-            "required": ["responses"],
-            "additionalProperties": false
-          },
-          "strict": true
-        }
-      }
+      model: "gpt-4-turbo",
+      messages: [
+        { role: "system", content: "You are an expert handwriting evaluator. Provide structured feedback on students' handwritten homework." },
+        { role: "user", content: "#{prompt}\n\nImage: #{image_url}" }
+      ],
+      max_tokens: 500
     }
 
     begin
       response = client.chat(parameters: parameters)
       chatgpt_response = response.dig("choices", 0, "message", "content")
-      JSON.parse(chatgpt_response) # Ensure it's valid JSON
+      JSON.parse(chatgpt_response) # Ensure valid JSON response
     rescue JSON::ParserError => e
       Rails.logger.error "JSON parsing failed: #{e.message}"
       { error: "Failed to parse response" }
-    rescue => e
-      Rails.logger.error "ChatGPT API request failed: #{e.message}"
-      { error: "API request failed" }
-    end
+    rescue Faraday::UnauthorizedError => e
+      Rails.logger.error "Unauthorized! Check API key: #{e.message}"
+      { error: "Unauthorized API access. Check your API key." }
+    rescue OpenAI::Error => e
+      if e.message.include?("Rate limit")
+        Rails.logger.error "OpenAI rate limit exceeded. Try again later."
+        { error: "Rate limit exceeded, please wait and retry." }
+      else
+        Rails.logger.error "OpenAI API error: #{e.message}"
+        { error: "API request failed" }
+      end
+    end    
   end
 end
