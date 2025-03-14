@@ -1,0 +1,9 @@
+development:
+  cloud_name: "dndv7ayic"
+  api_key: "138777773257955"
+  api_secret: "sukdlRCbZ29hoUFSQ8Bql8kBG7s"
+
+production:
+  cloud_name: <%= ENV["CLOUDINARY_CLOUD_NAME"] %>
+  api_key: <%= ENV["CLOUDINARY_API_KEY"] %>
+  api_secret: <%= ENV["CLOUDINARY_API_SECRET"] %>

@@ -1,0 +1,45 @@
+# PostgreSQL Configuration for Rails
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: blog_app_development
+  username: postgres
+  password: MGKishore_2223
+  host: localhost
+
+test:
+  <<: *default
+  database: blog_app_test
+  username: postgres
+  password: MGKishore_2223
+  host: localhost
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  username: <%= ENV["BLOG_APP_PRODUCTION_USER"] %>
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+  host: <%= ENV["BLOG_APP_PRODUCTION_HOST"] %>
+  database: <%= ENV["BLOG_APP_PRODUCTION_DB"] %>
+  port: <%= ENV["BLOG_APP_PRODUCTION_PORT"] || 5432 %>
+  pool: 10
+
+cache:
+  <<: *default
+  url: <%= ENV.fetch("DATABASE_CACHE_URL", ENV["DATABASE_URL"]) %>
+  migrations_paths: db/cache_migrate
+
+queue:
+  <<: *default
+  url: <%= ENV.fetch("DATABASE_QUEUE_URL", ENV["DATABASE_URL"]) %>
+  migrations_paths: db/queue_migrate
+
+cable:
+  <<: *default
+  url: <%= ENV["BLOG_APP_PRODUCTION_CABLE_DB_URL"] || ENV["DATABASE_URL"] %>
+  migrations_paths: db/cable_migrate
